@@ -27,7 +27,7 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 function Book(info) {
   this.title = info.title;
   this.authors = info.authors;
-  this.image = info.imageLinks.thumbnail.replace(/^http:\/\//i, 'https://') || ;
+  this.image = info.imageLinks.replace(/^http:\/\//i, 'https://') || console.log('no image available');
   this.description = info.description;
 
 }
