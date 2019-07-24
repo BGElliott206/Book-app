@@ -25,11 +25,15 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 // HELPER FUNCTIONS
 function Book(info) {
-  this.title = info.title;
-  this.authors = info.authors;
-  this.image = info.imageLinks.replace(/^http:\/\//i, 'https://') || console.log('no image available');
-  this.description = info.description;
+  const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
+  let httpRegex = /^(http:\/\/)/g
 
+  this.title = info.title ? info.title : 'No title available';
+  this.authors = info.authors ? info.authors[0] : 'No author available';
+  this.isbn = info.industryIdentifiers ? `ISBN_13 ${info.industryIdentifiers[0].identifier}` : 'No ISBN available';
+  this.image_url = info.imageLinks ? info.imageLinks.smallThumbnail.replace(httpRegex, 'https://') : placeholderImage;
+  this.description = info.description ? info.description : 'No description available';
+  this.id = info.industryIdentifiers ? info.industryIdentifiers[0].identifier : '';
 }
 
 // Note that .ejs file extension is not required
