@@ -1,5 +1,5 @@
 header {
-    background-color: #000;
+    background-color: rgb(28, 9, 94);
     width: 100%;
     position: fixed;
     top: 0;
@@ -66,7 +66,7 @@ header {
   input[type="password"]:focus,
   input[type="email"]:focus,
   textarea:focus {
-    background: #000;
+    background: rgb(77, 32, 210);
     color: #fff;
   }
   
@@ -111,7 +111,7 @@ header {
     margin-left: 5vw;
     padding: 2vw 5vw 2vw 0vw;
     text-align: left;
-    background: #ccc;
+    background: rgb(122, 13, 13);
     color: #444;
     border-radius: 3px;
   }
@@ -128,7 +128,7 @@ header {
   
   h3 {
     font-size: 4vw;
-    color: #444;
+    color: rgb(163, 201, 26);
     text-decoration: underline;
   }
   

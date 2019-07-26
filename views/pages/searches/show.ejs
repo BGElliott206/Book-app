@@ -9,7 +9,7 @@
     <main>
       <h4>Search Results</h4>
       <ul class="search-results">
-        <% results.forEach(book => { %>
+        <% search-results.forEach(book => { %>
           <li data-book-id="<%= book.isbn %>">
             <%- include('../books/detail', {book: book}) %>
             <button class="select-button">Select This Book</button>

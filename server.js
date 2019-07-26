@@ -14,17 +14,29 @@ const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 client.on('error', err => console.error(err));
 
+//Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+// app.use(methodOverride((request,response) => {
+//   if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+//     let method = request.body._method;
+//     delete request.body._method;
+//     return method;
+//   }
+// }))
 
 app.set('view engine', 'ejs');
 
 // API Routes
 app.get('/', getBooks);
-app.post('/searches', createSearch);
-app.get('/searches/new', newSearch);
-app.post('/books', createBook);
 app.get('/books/:id', getBook);
+app.get('/searches/new', newSearch);
+app.post('/searches', createSearch);
+app.post('/books', createBook);
+// app.put('/books/:id', updateBook);
+// app.delete('/books/:id', deleteBook);
+
 
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 
